@@ -4,8 +4,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    index: './src/index.js',
-    print: './src/print.js',
+    index: {
+      import: './src/index.js',
+      dependOn: 'shared',
+    },
+    print: {
+      import: './src/print.js',
+      dependOn: 'shared',
+    },
+    shared: ['lodash'],
   },
   output: {
     filename: '[name].bundle.js',
@@ -23,7 +30,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Development',
+      title: 'Code Splitting',
     }),
   ],
   module: {
