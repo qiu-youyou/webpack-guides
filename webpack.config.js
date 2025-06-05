@@ -5,7 +5,6 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/index.js',
-    print: './src/print.js',
   },
   output: {
     filename: '[name].bundle.js',
@@ -19,15 +18,10 @@ module.exports = {
   devServer: {
     static: './dist', // 从什么位置开始查找文件
   },
-  optimization: {
-    runtimeChunk: 'single',
-    splitChunks: {
-      chunks: 'all',
-    },
-  },
+
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Code Splitting',
+      title: 'Dynamic Imports',
     }),
   ],
   module: {
