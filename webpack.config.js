@@ -10,7 +10,6 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    publicPath: '/',
   },
 
   devtool: 'inline-source-map',
@@ -21,7 +20,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Dynamic Imports',
+      title: 'Lazy Loading',
     }),
   ],
   module: {
